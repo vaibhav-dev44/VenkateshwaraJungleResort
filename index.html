@@ -1,304 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkateshwara Jungle Resort</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-        .burger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #34495e;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-        nav li {
-            margin: 0 1rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 1rem;
-            display: block;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #2c3e50;
-        }
-        .hero {
-            background-image: url('https://lh3.googleusercontent.com/p/AF1QipM5MwASRBV9FZJk5MdHMhOc8KRTUjs42Gas0Dt3=w324-h312-n-k-no');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-        section {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .about img, .rooms img, .activities img, .packages img {
-            width: 50%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .rooms, .activities, .packages {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .room, .activity, .package {
-            flex: 1 1 300px;
-            text-align: center;
-        }
-        .highlight {
-            background-color: #f4f4f4;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        .highlight ul {
-            list-style: none;
-            padding: 0;
-        }
-        .highlight li {
-            margin: 0.5rem 0;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        input, textarea, button {
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #2c3e50;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #34495e;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-        @media (max-width: 768px) {
-            body {
-                padding-top: 4rem; /* Adjust for fixed header height */
-            }
-            header {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1000;
-            }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #34495e;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                z-index: 999;
-            }
-            nav ul.show {
-                display: flex;
-            }
-            .burger-menu {
-                display: flex;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venkateshwara Jungle Resort</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fafafa;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .burger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .burger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 0 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.5)
+        ),
+        url("https://lh3.googleusercontent.com/p/AF1QipM5MwASRBV9FZJk5MdHMhOc8KRTUjs42Gas0Dt3=w1080-h720-n-k-no");
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+      margin: 0 0 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      font-size: 2rem;
+    }
+
+    /* Images & Layouts */
+    .about img,
+    .room img,
+    .activity img,
+    .package img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .about img:hover,
+    .room img:hover,
+    .activity img:hover,
+    .package img:hover {
+      transform: scale(1.03);
+    }
+
+    .about {
+      text-align: center;
+    }
+
+    .highlight {
+      background-color: #ecf0f1;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .packages,
+    .rooms,
+    .activities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .package,
+    .room,
+    .activity {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .package:hover,
+    .room:hover,
+    .activity:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    input,
+    textarea,
+    button {
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #2c3e50;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #34495e;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+      .burger-menu {
+        display: flex;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #34495e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        border-radius: 0 0 10px 10px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav li {
+        margin: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav a {
+        padding: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="logo">Venkateshwara Jungle Resort</div>
-        <div class="burger-menu" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav>
-            <ul id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">Venkateshwara Jungle Resort</div>
+    <div class="burger-menu" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="home" class="hero">
-        <div>
-            <h1>Venkateshwara Jungle Resort – Mahabaleshwar</h1>
-            <p>Experience a luxurious month-long stay in our beautifully designed cottages nestled in the highest hills of Mahabaleshwar — surrounded by lush forest, fresh mountain air, and breathtaking sunset views right from your room.</p>
-        </div>
-    </section>
+  <section id="home" class="hero">
+    <h1>Venkateshwara Jungle Resort – Mahabaleshwar</h1>
+    <p>
+      Experience a luxurious stay in our beautifully designed cottages nestled
+      in the lush forests of Mahabaleshwar — surrounded by nature, fresh air,
+      and breathtaking sunsets.
+    </p>
+  </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxDndPuvaCD-Xv-eYwBzhG4ihXGLSwmWaYs9BSjbLisYWn4K1Ao3ZdBE4jJMHQW2_vWwfmq_tX4aCTQQIqI-UneFbTuM8hf-2qKuuUtjauDpi9UqrkL_2GuUYlsdmbdRuVoUJZu=s1360-w1360-h1020-rw" alt="Jungle Resort">
-        <p>Nestled in the heart of lush greenery, Venkateshwara Jungle Resort offers a serene retreat amidst nature. Enjoy breathtaking views, wildlife encounters, and unparalleled relaxation.</p>
-        <div class="highlight">
-            <h3>🍃 Highlights:</h3>
-            <ul>
-                <li>• Luxurious cottages with stunning hill & forest views</li>
-                <li>• Morning walks through the private forest reserve 🌲</li>
-                <li>• Perfect spot for peace, meditation, and rejuvenation 🧘‍♀️</li>
-                <li>• Unlimited delicious meals – breakfast, lunch & dinner (Veg/Non-Veg) 🍽️</li>
-                <li>• A home away from home – but better!</li>
-            </ul>
-        </div>
-    </section>
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <img
+      src="https://lh3.googleusercontent.com/p/AF1QipOuJ07qyhQFu_sHhbeWtfM4_W2ars10_ad9Dur0=s1360-w1360-h1020-rw"
+      alt="Resort view" />
+    <p>
+      Nestled in the heart of lush greenery, Venkateshwara Jungle Resort offers
+      a serene retreat amidst nature. Enjoy breathtaking views, wildlife, and
+      pure relaxation.
+    </p>
+    <div class="highlight">
+      <h3>🍃 Highlights:</h3>
+      <ul>
+        <li>Luxurious cottages with stunning forest views</li>
+        <li>Morning walks through private forest trails</li>
+        <li>Perfect for peace, meditation, and rejuvenation</li>
+        <li>Delicious veg & non-veg meals included</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="packages">
-        <h2>Packages & Offers</h2>
-        <div class="packages">
-            <div class="package">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipNzJjJuQZkV76soCWqVxoCQWBqKEAo-HKCl4fRp=s1360-w1360-h1020-rw" alt="Family Package">
-                <h3>👨‍👩‍👧‍👦 Family Package</h3>
-                <p>1 Day Stay for 12 People – ₹50,000 (All Inclusive)</p>
-            </div>
-            <div class="package">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipPw8D56mzlc4S6baxkZimZJ9qq07RAMzfgspO3y=s1360-w1360-h1020-rw" alt="Diwali Offer">
-                <h3>🎆 Special Diwali Offer!</h3>
-                <p>Book the entire resort for 1 month – only ₹6,00,000 (inclusive of all)<br>Per day ₹50,000 - Entire Resort for 10-12 People.</p>
-            </div>
-            <div class="package">
-                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwXnF3XjTcEM_C4zLb_VBA6ghmawkVats4UTSOU1DzIg1XmD0U_Kp2djDLz4olF-Z11K7HbhcTPLxocjIHbQO_d2aom-7EdRV_Bfv2_ZRl0yydYQ2it4ORDrDRCzQoLhjp0XuJB=s1360-w1360-h1020-rw" alt="Standard Rates">
-                <h3>Standard Rates</h3>
-                <p>Book a cottage for just ₹3,500 per night for 2 adults, or book the entire resort for ₹15,999 per night, including breakfast. Rooms start from ₹2,500.</p>
-                <p>Room Rate: ₹3500 for all room categories (includes breakfast)</p>
-                <p>Serene Jungle Experience: Enjoy a peaceful stay surrounded by lush greenery.</p>
-            </div>
-        </div>
-    </section>
+  <section id="packages">
+    <h2>Packages & Offers</h2>
+    <div class="packages">
+      <div class="package">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipNzJjJuQZkV76soCWqVxoCQWBqKEAo-HKCl4fRp=s1360-w1360-h1020-rw" alt="Family Package" />
+        <h3>👨‍👩‍👧‍👦 Family Package</h3>
+        <p>1 Day Stay for 12 People – ₹50,000 (All Inclusive)</p>
+      </div>
+      <div class="package">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipPw8D56mzlc4S6baxkZimZJ9qq07RAMzfgspO3y=s1360-w1360-h1020-rw" alt="Diwali Offer" />
+        <h3>🎆 Diwali Offer</h3>
+        <p>
+          Book the entire resort for 1 month – ₹6,00,000 (All Inclusive)<br />
+          Per day ₹50,000 for 10–12 People
+        </p>
+      </div>
+      <div class="package">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwXnF3XjTcEM_C4zLb_VBA6ghmawkVats4UTSOU1DzIg1XmD0U_Kp2djDLz4olF-Z11K7HbhcTPLxocjIHbQO_d2aom-7EdRV_Bfv2_ZRl0yydYQ2it4ORDrDRCzQoLhjp0XuJB=s1360-w1360-h1020-rw" alt="Standard Rates" />
+        <h3>Standard Rates</h3>
+        <p>₹3,500 per night per cottage with breakfast included.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="rooms">
-        <h2>Our Rooms</h2>
-        <div class="rooms">
-            <div class="room">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipNzJjJuQZkV76soCWqVxoCQWBqKEAo-HKCl4fRp=s1360-w1360-h1020-rw" alt="Deluxe Room">
-                <h3>Deluxe Room</h3>
-                <p>Spacious rooms with modern amenities and jungle views.</p>
-            </div>
-            <div class="room">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipPw8D56mzlc4S6baxkZimZJ9qq07RAMzfgspO3y=s1360-w1360-h1020-rw" alt="Suite">
-                <h3>Suite</h3>
-                <p>Luxurious suites perfect for families or special occasions.</p>
-            </div>
-        </div>
-    </section>
+  <section id="rooms">
+    <h2>Our Rooms</h2>
+    <div class="rooms">
+      <div class="room">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipNzJjJuQZkV76soCWqVxoCQWBqKEAo-HKCl4fRp=s1360-w1360-h1020-rw" alt="Deluxe Room" />
+        <h3>Deluxe Room</h3>
+        <p>Spacious rooms with modern amenities and jungle views.</p>
+      </div>
+      <div class="room">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipPw8D56mzlc4S6baxkZimZJ9qq07RAMzfgspO3y=s1360-w1360-h1020-rw" alt="Suite" />
+        <h3>Suite</h3>
+        <p>Luxurious suites perfect for families or special occasions.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="activities">
-        <h2>Activities</h2>
-        <div class="activities">
-            <div class="activity">
-                <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwXnF3XjTcEM_C4zLb_VBA6ghmawkVats4UTSOU1DzIg1XmD0U_Kp2djDLz4olF-Z11K7HbhcTPLxocjIHbQO_d2aom-7EdRV_Bfv2_ZRl0yydYQ2it4ORDrDRCzQoLhjp0XuJB=s1360-w1360-h1020-rw" alt="Hiking">
-                <h3>Hiking</h3>
-                <p>Explore scenic trails and discover hidden gems.</p>
-            </div>
-            <div class="activity">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipPAmKzaL5CBueU98iRGCrsQrcLzvauWKsNLyZuP=s1360-w1360-h1020-rw" alt="Wildlife Safari">
-                <h3>Wildlife Safari</h3>
-                <p>Embark on thrilling safaris to spot exotic animals.</p>
-            </div>
-            <div class="activity">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipNQ4Bh-3b_6cs1b0eUc2VdQghvm-wcXL5jnfsBL=s1360-w1360-h1020-rw" alt="Campfire">
-                <h3>Campfire Nights</h3>
-                <p>Relax around a bonfire with stories and stargazing.</p>
-            </div>
-        </div>
-    </section>
+  <section id="activities">
+    <h2>Activities</h2>
+    <div class="activities">
+      <div class="activity">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipNQ4Bh-3b_6cs1b0eUc2VdQghvm-wcXL5jnfsBL=s1360-w1360-h1020-rw" alt="Campfire" />
+        <h3>Campfire Nights</h3>
+        <p>Relax around a bonfire with stories and stargazing.</p>
+      </div>
+      <div class="activity">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipPAmKzaL5CBueU98iRGCrsQrcLzvauWKsNLyZuP=s1360-w1360-h1020-rw" alt="Wildlife Safari" />
+        <h3>Wildlife Safari</h3>
+        <p>Embark on thrilling safaris to spot exotic animals.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>📍 Venkateshwara Jungle Resort, Mahabaleshwar</p>
-        <p>📞 For Enquiry & Bookings:</p>
-        <p>Owner – Nitin Khandelwal</p>
-        <p>📱 +91 9970179241 / 9011222034</p>
-        <p>Email: houseofvenkateshwara@gmail.com</p>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+      📍 Venkateshwara Jungle Resort, Mahabaleshwar<br />
+      📞 Owner: Nitin Khandelwal — +91 9970179241 / 9011222034<br />
+      📧 houseofvenkateshwara@gmail.com
+    </p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-    <footer>
-        <p>&copy; 2023 Venkateshwara Jungle Resort. All rights reserved. Make unforgettable memories at Venkateshwara Jungle Resort. Your peaceful escape awaits!</p>
-    </footer>
+  <footer>
+    <p>
+      © 2025 Venkateshwara Jungle Resort. All rights reserved.<br />
+      Make unforgettable memories surrounded by nature 🌿
+    </p>
+  </footer>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('show');
-        }
-    </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("nav-menu");
+      menu.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
