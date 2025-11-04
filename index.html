@@ -144,6 +144,15 @@
             padding: 1rem;
         }
         @media (max-width: 768px) {
+            body {
+                padding-top: 4rem; /* Adjust for fixed header height */
+            }
+            header {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+            }
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -152,6 +161,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
+                z-index: 999;
             }
             nav ul.show {
                 display: flex;
@@ -184,7 +194,7 @@
 
     <section id="home" class="hero">
         <div>
-            <h1> Venkateshwara Jungle Resort – Mahabaleshwar </h1>
+            <h1>✨ Venkateshwara Jungle Resort – Mahabaleshwar ✨</h1>
             <p>Experience a luxurious month-long stay in our beautifully designed cottages nestled in the highest hills of Mahabaleshwar — surrounded by lush forest, fresh mountain air, and breathtaking sunset views right from your room.</p>
         </div>
     </section>
